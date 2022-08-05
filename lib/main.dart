@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petty_shop/screens/login.dart';
-import 'package:petty_shop/screens/utils/screen_utils.dart';
+import 'package:petty_shop/screens/register.dart';
 
 void main() {
   runApp(const App());
@@ -22,37 +21,25 @@ class App extends StatelessWidget {
                 // verticalDirection: VerticalDirection.up,
                 // mainAxisAlignment: MainAxisAlignment.end,
                 // crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  const CircleAvatar(
-                    radius: 80,
+                children: const <Widget>[
+                  CircleAvatar(
+                    radius: 85,
                     backgroundColor: Colors.cyan,
                     backgroundImage: AssetImage('images/Logo.png'),
                   ),
-                  const Text(
+                  Text(
                     'Petty Shop',
                     style: TextStyle(
                       fontFamily: 'Pacifico',
-                      fontSize: 30,
+                      fontSize: 26,
                       color: Colors.deepPurpleAccent,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(
-                    height: 25.0,
+                  SizedBox(
+                    height: 45.0,
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    child: const TextField(
-                      style: TextStyle(
-                        color: Colors.lightBlue,
-                      ),
-                      decoration: kTextFieldInputDecorations,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10.0,
-                  ),
-                  const LoginButton(),
+                  RegisterForm(),
                 ],
               ),
             ),
