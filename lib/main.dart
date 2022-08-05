@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petty_shop/screens/register.dart';
+import 'package:petty_shop/screens/login.dart';
 
 void main() {
   runApp(const App());
@@ -39,7 +39,8 @@ class App extends StatelessWidget {
                   SizedBox(
                     height: 45.0,
                   ),
-                  RegisterForm(),
+                  LoginForm(),
+                  //RegisterForm(),
                 ],
               ),
             ),

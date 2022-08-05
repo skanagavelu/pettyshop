@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petty_shop/screens/otp_verification.dart';
 import 'package:petty_shop/screens/utils/screen_utils.dart';
 
 class LoginForm extends StatefulWidget {
@@ -35,8 +36,8 @@ class _LoginFormState extends State<LoginForm> {
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your mobile number';
-                } else if (value.length != 10) {
-                  return 'Mobile number must be of 10 digits';
+                  // } else if (value.length != 10) {
+                  //   return 'Mobile number must be of 10 digits';
                 } else if (!numberRegExp.hasMatch(value)) {
                   return 'Only numeric is allowed';
                 }
@@ -65,11 +66,23 @@ class LoginIconButton extends StatelessWidget {
       icon: const Icon(Icons.arrow_circle_right),
       tooltip: 'Proceed',
       onPressed: () {
-        // Validate will return true if the form is valid, or false if
-        // the form is invalid.
-
         if (formKey.currentState!.validate()) {
-          // Process data.
+          print("Form is valid");
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return const OTPVerification();
+              },
+            ),
+          );
+          // Navigator.of(context).push(
+          //   MaterialPageRoute(
+          //     builder: (context) => const MaterialApp(
+          //       home: RegisterForm(),
+          //     ),
+          //   ),
+          // );
         }
       },
     );

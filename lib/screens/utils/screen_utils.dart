@@ -34,22 +34,33 @@ InputDecoration kLoginTextFieldInputDecorations(GlobalKey<FormState> formKey) {
   );
 }
 
+TextStyle kRegisterTextStyle() {
+  return const TextStyle(
+    fontSize: 13,
+    fontFamily: 'Rubik',
+    color: Colors.deepPurpleAccent,
+    fontWeight: FontWeight.w700,
+  );
+}
+
 InputDecoration kRegisterTextFieldInputDecorations(
     GlobalKey<FormState> formKey, String labelName) {
   return InputDecoration(
     filled: true,
     fillColor: Colors.white,
     labelText: labelName,
+    contentPadding:
+        const EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
     labelStyle: const TextStyle(
-      fontSize: 20,
+      fontSize: 14,
       fontFamily: 'Rubik',
       color: Colors.deepPurpleAccent,
       fontWeight: FontWeight.bold,
-      backgroundColor: Colors.cyan,
+      // backgroundColor: Colors.cyan,
     ),
     border: const OutlineInputBorder(
       borderRadius: BorderRadius.all(
-        Radius.circular(10),
+        Radius.circular(5),
       ),
       borderSide: BorderSide.none,
     ),
