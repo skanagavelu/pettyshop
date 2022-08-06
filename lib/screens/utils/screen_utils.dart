@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petty_shop/screens/login.dart';
+import 'package:petty_shop/screens/auth/login.dart';
 
 InputDecoration kLoginTextFieldInputDecorations(GlobalKey<FormState> formKey) {
   return InputDecoration(
@@ -55,7 +55,7 @@ InputDecoration kRegisterTextFieldInputDecorations(
       fontSize: 14,
       fontFamily: 'Rubik',
       color: Colors.deepPurpleAccent,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.normal,
       // backgroundColor: Colors.cyan,
     ),
     border: const OutlineInputBorder(

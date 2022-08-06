@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petty_shop/screens/login.dart';
+import 'package:petty_shop/screens/auth/login.dart';
 
 void main() {
   runApp(const App());

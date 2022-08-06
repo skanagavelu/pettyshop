@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petty_shop/screens/otp_verification.dart';
+import 'package:petty_shop/screens/auth/register.dart';
 import 'package:petty_shop/screens/utils/screen_utils.dart';
 
 class LoginForm extends StatefulWidget {
@@ -28,6 +28,7 @@ class _LoginFormState extends State<LoginForm> {
             child: TextFormField(
               maxLength: 10,
               maxLines: 1,
+              keyboardType: TextInputType.number,
               style: const TextStyle(
                 color: Colors.lightBlue,
                 fontWeight: FontWeight.bold,
@@ -67,12 +68,12 @@ class LoginIconButton extends StatelessWidget {
       tooltip: 'Proceed',
       onPressed: () {
         if (formKey.currentState!.validate()) {
-          print("Form is valid");
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) {
-                return const OTPVerification();
+                // return const MyStatefulWidget();
+                return const RegisterForm(); //const OTPVerification();
               },
             ),
           );
@@ -85,29 +86,6 @@ class LoginIconButton extends StatelessWidget {
           // );
         }
       },
-    );
-  }
-}
-
-class LoginButton extends StatelessWidget {
-  const LoginButton(this.formKey, {Key? key}) : super(key: key);
-  final GlobalKey<FormState> formKey;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: TextButton.styleFrom(
-        primary: Colors.deepPurpleAccent[700],
-      ),
-      onPressed: () {
-        // Validate will return true if the form is valid, or false if
-        // the form is invalid.
-
-        if (formKey.currentState!.validate()) {
-          // Process data.
-        }
-      },
-      child: const Text('Login'),
     );
   }
 }

@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:petty_shop/screens/auth/otp_verification.dart';
 import 'package:petty_shop/screens/utils/screen_utils.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -18,7 +18,7 @@ class _RegisterFormState extends State<RegisterForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register'),
+        title: const Text('Registration'),
       ),
       body: Container(
         padding: const EdgeInsets.all(10),
@@ -112,7 +112,7 @@ class RegisterButton extends StatelessWidget {
       ),
       onPressed: () {
         if (formKey.currentState!.validate()) {
-          _showDialog(context, formKey);
+          return _showDialog(context, formKey);
         }
       },
       child: const Text('Register'),
@@ -136,7 +136,7 @@ class EmailConfirmationAlertDialog extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        Navigator.of(context).pop();
+        // Navigator.of(context).pop();
       },
     );
     Widget confirmButton = TextButton(
@@ -146,14 +146,26 @@ class EmailConfirmationAlertDialog extends StatelessWidget {
           color: Colors.lightGreenAccent,
         ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return const OTPVerification(); //const OTPVerification();
+            },
+          ),
+          (Route<dynamic> route) => false,
+        );
+        // Navigator.of(context).pushReplacement(MaterialPageRoute(
+        //     builder: (BuildContext context) => const OTPVerification()));
+      },
     );
 
     // set up the AlertDialog
     return AlertDialog(
       title: const Text("Email confirmation"),
       content: const Text(
-          "OTP will be send to your Email, \nPlease confirm your email id is valid?"),
+          "OTP will be only send to your Email, \nPlease confirm your email id is valid?"),
       actions: [
         cancelButton,
         confirmButton,
@@ -161,34 +173,9 @@ class EmailConfirmationAlertDialog extends StatelessWidget {
       elevation: 24.0,
       backgroundColor: Colors.indigo[300],
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(35),
       ),
     );
-
-    // return const CupertinoAlertDialog(
-    //   title: Text('Accept'),
-    // );
-
-    // return showDialog(
-    //   context: context,
-    //   builder: (_) => CupertinoAlertDialog(
-    //     title: Text('Accept'),
-    //   ),
-    //   barrierDismissible: false,
-    // ).then((value) => value ?? false);
-
-    // return AlertDialog(
-    //   content: Container(
-    //     padding: const EdgeInsets.all(8.0),
-    //     decoration: const BoxDecoration(
-    //         gradient: LinearGradient(colors: [
-    //       Colors.blue,
-    //       Colors.red,
-    //     ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-    //     child: Text('Accept'),
-    //   ),
-    //   contentPadding: EdgeInsets.all(0.0),
-    // );
   }
 }
 
@@ -200,69 +187,3 @@ _showDialog(BuildContext context, GlobalKey<FormState> formKey) {
     },
   );
 }
-
-// class BlurryDialog extends StatelessWidget {
-//   String title;
-//   String content;
-//   VoidCallback continueCallBack;
-//
-//   BlurryDialog(this.title, this.content, this.continueCallBack);
-//   TextStyle textStyle = TextStyle(color: Colors.black);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return BackdropFilter(
-//         filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
-//         child: AlertDialog(
-//           title: Text(
-//             title,
-//             style: textStyle,
-//           ),
-//           content: Text(
-//             content,
-//             style: textStyle,
-//           ),
-//           actions: <Widget>[
-//             TextButton(
-//               child: Text("Continue"),
-//               onPressed: () {
-//                 continueCallBack();
-//               },
-//             ),
-//             TextButton(
-//               child: Text("Cancel"),
-//               onPressed: () {
-//                 Navigator.of(context).pop();
-//               },
-//             ),
-//           ],
-//         ));
-//   }
-// }
-
-// class MyStatelessWidget extends StatelessWidget {
-//   const MyStatelessWidget({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Center(
-//         child: OutlinedButton(
-//           onPressed: () {
-//             Navigator.of(context).restorablePush(_dialogBuilder);
-//           },
-//           child: const Text('Open Dialog'),
-//         ),
-//       ),
-//     );
-//   }
-//
-//   static Route<Object?> _dialogBuilder(
-//       BuildContext context, Object? arguments) {
-//     return DialogRoute<void>(
-//       context: context,
-//       builder: (BuildContext context) =>
-//           const AlertDialog(title: Text('Material Alert!')),
-//     );
-//   }
-// }
