@@ -73,17 +73,10 @@ class LoginIconButton extends StatelessWidget {
             MaterialPageRoute(
               builder: (context) {
                 // return const MyStatefulWidget();
-                return const RegisterForm(); //const OTPVerification();
+                return const RegisterForm(); //const OTPVerification(); const Debit();
               },
             ),
           );
-          // Navigator.of(context).push(
-          //   MaterialPageRoute(
-          //     builder: (context) => const MaterialApp(
-          //       home: RegisterForm(),
-          //     ),
-          //   ),
-          // );
         }
       },
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petty_shop/screens/home/debit.dart';
+import 'package:petty_shop/screens/home/transactions.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
